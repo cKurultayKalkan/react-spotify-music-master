@@ -1,20 +1,39 @@
-import React , {Component} from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import {FormGroup,FormControl,InputGroup,Glyphicon} from 'react-bootstrap';
+import {FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
 
 
 class App extends Component {
-    render(){
-        return(
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            query: ''
+        }
+    }
+
+    search() {
+        console.log(this.state);
+    }
+
+    render() {
+        return (
             <div className="App">
                 <div className="App-title">Music Master</div>
                 <FormGroup>
                     <InputGroup>
                         <FormControl
                             type="text"
-                            placeholder="search an artist..."
+                            placeholder="Search for an Artist..."
+                            value={this.state.query}
+                            onChange={event => this.setState({query: event.target.value})}
+                            onKeyPress={event => {
+                                if (event.key === 'Enter')
+                                    this.search()
+
+                            }}
                         />
-                        <InputGroup.Addon>
+                        <InputGroup.Addon onClick={this.search()}>
                             <Glyphicon glyph="search"/>
                         </InputGroup.Addon>
                     </InputGroup>
