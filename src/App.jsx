@@ -8,7 +8,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            query: ''
+            query: 'Frank Sinatra',
+            artist: null
         };
 
     }
@@ -21,16 +22,20 @@ class App extends Component {
 
         const myOptions = {
             method: 'GET',
-            headers:  {
+            headers: {
                 'Authorization': 'Bearer ' + TOKEN
             },
             mode: 'cors',
             cache: 'default'
         };
 
-        fetch(FETCH_URL, myOptions )
+        fetch(FETCH_URL, myOptions)
             .then(response => response.json())
-            .then(json => console.log(json));
+            .then(json => {
+                const artist = json.artists.items[0];
+                this.setState({artist});
+                console.log(artist);
+            });
         console.log(FETCH_URL)
     }
 
