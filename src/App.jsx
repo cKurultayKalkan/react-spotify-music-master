@@ -51,7 +51,7 @@ class App extends Component {
 
                             }}
                         />
-                        <InputGroup.Addon onClick={this.search()}>
+                        <InputGroup.Addon onClick={()=>this.search()}>
                             <Glyphicon glyph="search"/>
                         </InputGroup.Addon>
                     </InputGroup>
