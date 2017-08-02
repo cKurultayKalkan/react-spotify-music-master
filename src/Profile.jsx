@@ -7,11 +7,6 @@ class Profile extends Component {
         this.state = {}
     }
 
-    renderGenres(artist) {
-
-
-    }
-
     render() {
         let artist = this.props.artist !== null ? this.props.artist : {name: '', followers: {total: ''}, images: [{url: ''}], genres:[]};
         return (

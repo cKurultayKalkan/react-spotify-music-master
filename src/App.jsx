@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Profile from './Profile';
+import Gallery from './Gallery';
 import {FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
 import {TOKEN} from './config';
 
@@ -78,7 +79,9 @@ class App extends Component {
                     this.state.artist !== null ?
                         <div>
                             <Profile artist={this.state.artist}/>
-                            <div className="Gallery"> Gallery</div>
+                            <Gallery
+                                tracks={this.state.tracks}
+                            />
                         </div> :
                         <div></div>
                 }
